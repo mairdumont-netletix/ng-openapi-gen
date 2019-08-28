@@ -1,6 +1,6 @@
 import { SchemaObject } from 'openapi3-ts';
 import { GenType } from './gen-type';
-import { fileName, modelClass, simpleName, tsComments, tsType } from './gen-utils';
+import { fileName, modelClass, simpleName, tsComments, tsType, typeName } from './gen-utils';
 import { Options } from './options';
 import { Property } from './property';
 import { EnumValue } from './enum-value';
@@ -31,7 +31,7 @@ export class Model extends GenType {
   constructor(name: string, public schema: SchemaObject, options: Options) {
     super(name, options);
 
-    this.typeName = name;
+    this.typeName = typeName(name);
     this.fileName = fileName(this.typeName);
 
     const description = schema.description || '';
