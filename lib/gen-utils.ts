@@ -81,7 +81,7 @@ export function tsComments(description: string | undefined, level: number) {
  * Applies the prefix and suffix to a model class name
  */
 export function modelClass(baseName: string, options: Options) {
-  return `${options.modelPrefix || ''}${baseName}${options.modelSuffix || ''}`;
+  return `${options.modelPrefix || ''}${typeName(baseName)}${options.modelSuffix || ''}`;
 }
 
 /**

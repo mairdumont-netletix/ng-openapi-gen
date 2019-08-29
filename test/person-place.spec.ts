@@ -16,7 +16,7 @@ describe('Generation tests using person-place.json', () => {
       expect(ast.declarations[0]).toEqual(jasmine.any(TypeAliasDeclaration));
       const decl = ast.declarations[0] as TypeAliasDeclaration;
       const text = ts.substring(decl.start || 0, decl.end || ts.length);
-      expect(text).toBe('export type PpIdModel = string;');
+      expect(text).toBe('export type PPIdModel = string;');
       done();
     });
   });
@@ -30,7 +30,7 @@ describe('Generation tests using person-place.json', () => {
       expect(ast.declarations.length).toBe(1);
       expect(ast.declarations[0]).toEqual(jasmine.any(InterfaceDeclaration));
       const decl = ast.declarations[0] as InterfaceDeclaration;
-      expect(decl.name).toBe('PpEntityModel');
+      expect(decl.name).toBe('PPEntityModel');
       expect(decl.properties.length).toBe(1);
       const id = decl.properties[0];
       expect(id.name).toBe('id');
@@ -49,7 +49,7 @@ describe('Generation tests using person-place.json', () => {
       expect(ast.declarations.length).toBe(1);
       expect(ast.declarations[0]).toEqual(jasmine.any(InterfaceDeclaration));
       const decl = ast.declarations[0] as InterfaceDeclaration;
-      expect(decl.name).toBe('PpPersonModel');
+      expect(decl.name).toBe('PPPersonModel');
       expect(decl.properties.length).toBe(2);
       const name = decl.properties.find(p => p.name === 'name');
       expect(name).withContext('name property').toBeDefined();
@@ -74,7 +74,7 @@ describe('Generation tests using person-place.json', () => {
       expect(ast.declarations.length).toBe(1);
       expect(ast.declarations[0]).toEqual(jasmine.any(InterfaceDeclaration));
       const decl = ast.declarations[0] as InterfaceDeclaration;
-      expect(decl.name).toBe('PpPlaceModel');
+      expect(decl.name).toBe('PPPlaceModel');
       expect(decl.properties.length).toBe(1);
       const description = decl.properties.find(p => p.name === 'description');
       expect(description).withContext('description property').toBeDefined();
@@ -97,7 +97,7 @@ describe('Generation tests using person-place.json', () => {
       expect(ast.declarations.length).toBe(1);
       expect(ast.declarations[0]).toEqual(jasmine.any(InterfaceDeclaration));
       const decl = ast.declarations[0] as InterfaceDeclaration;
-      expect(decl.name).toBe('PpPersonPlaceModel');
+      expect(decl.name).toBe('PPPersonPlaceModel');
       expect(decl.properties.length).toBe(2);
       const since = decl.properties.find(p => p.name === 'since');
       expect(since).withContext('since property').toBeDefined();
